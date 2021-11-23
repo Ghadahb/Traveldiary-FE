@@ -18,13 +18,6 @@ import { Pressable } from "react-native";
 
 const TripItem = ({ trip, navigation }) => {
   return (
-    // <Pressable
-    // onPress={() => {
-    //   navigation.navigate('TripDetail', { trip: trip});
-    //   console.log('click');
-    // }}
-    // >
-
     <Box
       maxW="80"
       rounded="sm"
@@ -44,30 +37,37 @@ const TripItem = ({ trip, navigation }) => {
       }}
       shadow={"3"}
     >
-      <Box>
-        <AspectRatio w="100%" ratio={16 / 9}>
-          <Image source={{ uri: baseURL + trip.image }} 
-          
-          alt="image"/>
-        </AspectRatio>
-        <Center
-          bg="#0000ff"
-          _dark={{
-            bg: "violet.400",
-          }}
-          _text={{
-            color: "#f8f8ff",
-            fontWeight: "700",
-            fontSize: "xs",
-          }}
-          position="absolute"
-          bottom="0"
-          px="3"
-          py="1.5"
-        >
-          {trip.name}
-        </Center>
-      </Box>
+      <Pressable
+        onPress={() => {
+          navigation.navigate("TripDetail"
+          , { trip: trip }
+          );
+          console.log("click");
+        }}
+      >
+        <Box>
+          <AspectRatio w="100%" ratio={16 / 9}>
+            <Image source={{ uri: baseURL + trip.image }} alt="image" />
+          </AspectRatio>
+          <Center
+            bg="#0000ff"
+            _dark={{
+              bg: "violet.400",
+            }}
+            _text={{
+              color: "#f8f8ff",
+              fontWeight: "700",
+              fontSize: "xs",
+            }}
+            position="absolute"
+            bottom="0"
+            px="3"
+            py="1.5"
+          >
+            {trip.name}
+          </Center>
+        </Box>
+      </Pressable>
 
       <Stack p="4" space={3}>
         <Stack space={2}>
@@ -106,11 +106,12 @@ const TripItem = ({ trip, navigation }) => {
         </HStack>
       </Stack>
     </Box>
+    // </Pressable>
+
     // </Center>
     // </Stack>
     // </VStack>
     // </ScrollView>
-    // </Pressable>
   );
 };
 

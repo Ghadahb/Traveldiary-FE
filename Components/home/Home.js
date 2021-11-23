@@ -1,9 +1,5 @@
 import React from "react";
-
 import { StyleSheet, Text, View, Box, Heading } from "react-native";
-
-
-
 import { Button } from "native-base";
 import Footer from "../footer/Footer";
 
@@ -20,7 +16,7 @@ const Home = ({ navigation }) => {
           (noun) a journey or excursion, especially for pleasure.
         </Text>
       </Box> */}
-      <Footer navigation={navigation} />
+      {/* <Footer navigation={navigation} /> */}
       {/* <Text> Hi </Text> */}
       <Button title="NOMAD" color="#0000ff" onPress={() => alert("WELCOME")} />
 
