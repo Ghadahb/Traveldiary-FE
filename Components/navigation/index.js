@@ -22,7 +22,6 @@ const RootNavigator = () => {
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
       <Screen name="ProfileList" component={ProfileList} />
-      <Screen name="TripDetail" component={TripDetail} />
       <Screen name="Profile" component={Profile} />
       <Screen
         name="TripDetail"
@@ -42,14 +41,13 @@ const RootNavigator = () => {
           headerRight: () => <AddButton />,
         })}
       />
-           <Screen name="ProfileList" component={ProfileList}/>
-           <Screen
+           {/* <Screen
         name="TripUpdate"
         component={TripList}
         options={() => ({
           headerRight: () => <TripUpdateModal />,
         })}
-      />
+      /> */}
     </Navigator>
   );
 };
