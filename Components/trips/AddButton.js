@@ -18,7 +18,11 @@ const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
   const [trip, setTrip] = useState({
     name: "",
-    // image: "",
+    title: "",
+    subtitle: "",
+    description: "",
+    image: "",
+    date: "",
   });
 
   //   const handleChange = (event) =>
@@ -32,42 +36,81 @@ const AddButton = () => {
     tripStore.createTrip(trip);
     // handleClose();
   };
+  const handleImage = (event) =>
+    setTrip({ ...trip, image: event.target.files[0] });
 
   return (
     <Center flex={1} px="3">
       <>
-        <Button onPress={() => setShowModal(true)}>+</Button>
+        <Button onPress={() => setShowModal(true)} backgroundColor="#0000ff">
+          +
+        </Button>
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />
             <Modal.Header>Add A Trip</Modal.Header>
             <Modal.Body>
               <FormControl>
-                <FormControl.Label>Title</FormControl.Label>
+                <FormControl.Label>Which City?</FormControl.Label>
                 <Input onChangeText={(name) => setTrip({ ...trip, name })} />
               </FormControl>
+              <FormControl>
+                <FormControl.Label>Title</FormControl.Label>
+                <Input onChangeText={(title) => setTrip({ ...trip, title })} />
+              </FormControl>
               <FormControl mt="3">
-                <FormControl.Label>Photo</FormControl.Label>
+                <FormControl.Label>Subtitle</FormControl.Label>
+                <Input
+                  name="subtite"
+                  onChangeText={(subtitle) => setTrip({ ...trip, subtitle })}
+                />
+              </FormControl>
+              <FormControl mt="3">
+                <FormControl mt="3">
+                  <FormControl.Label>Description</FormControl.Label>
+                  <Input
+                    name="description"
+                    onChangeText={(description) =>
+                      setTrip({ ...trip, description })
+                    }
+                  />
+                  <FormControl.HelperText>
+                    250 character limit.
+                  </FormControl.HelperText>
+                </FormControl>
+
+                <FormControl.Label mt="3">Photo</FormControl.Label>
                 <Input
                   name="image"
                   type="file"
+                  // onChange={handleImage}
                   onChangeText={(image) => setTrip({ ...trip, image })}
                 />
+              </FormControl>
+
+              <FormControl>
+                <FormControl.Label>How long was your trip?</FormControl.Label>
+                <Input onChangeText={(date) => setTrip({ ...trip, date })} />
+                <FormControl.HelperText>
+                  Please use this format: YYYY-MM-DD.
+                </FormControl.HelperText>
               </FormControl>
             </Modal.Body>
 
             <Modal.Footer>
               <Button.Group space={2}>
                 <Button
-                  variant="ghost"
-                  colorScheme="blueGray"
+                  // variant="ghost"
                   onPress={() => {
                     setShowModal(false);
                   }}
+                  backgroundColor="#0000ff"
                 >
                   Cancel
                 </Button>
-                <Button onPress={handleSubmit}>Save</Button>
+                <Button onPress={handleSubmit} backgroundColor="#0000ff">
+                  Save
+                </Button>
               </Button.Group>
             </Modal.Footer>
           </Modal.Content>

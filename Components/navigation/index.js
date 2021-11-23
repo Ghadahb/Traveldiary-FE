@@ -23,6 +23,7 @@ const RootNavigator = () => {
       <Screen name="ProfileList" component={ProfileList} />
       <Screen name="TripDetail" component={TripDetail} />
       <Screen name="Profile" component={Profile} />
+      <Screen name="Map" component={Map} />
       <Screen
         name="TripList"
         component={TripList}

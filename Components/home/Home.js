@@ -32,6 +32,7 @@ const Home = ({ navigation }) => {
         color="#0000ff"
         width="50"
         height="50"
+        backgroundColor="#0000ff"
         onPress={() => navigation.navigate("TripList")}
       >Trip List</Button>
       <Button
@@ -39,6 +40,7 @@ const Home = ({ navigation }) => {
         color="#0000ff"
         width="50"
         height="50"
+        backgroundColor="#0000ff"
         onPress={() => navigation.navigate("Signin")}
       >Sign in</Button>
             <Button
@@ -46,6 +48,7 @@ const Home = ({ navigation }) => {
         color="#0000ff"
         width="50"
         height="50"
+        backgroundColor="#0000ff"
         onPress={() => navigation.navigate("ProfileList")}
       >Profile</Button>
 
