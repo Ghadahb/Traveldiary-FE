@@ -16,7 +16,7 @@ const { Navigator, Screen } = createStackNavigator();
        <Navigator
        initialRouteName="TripList">
            <Screen name="Home" component={Home}
-           oprtions={{ headerShown: false }}
+        //    oprtions={{ headerShown: false }}
            />
            <Screen name ="Signin" component={Signin} />
                <Screen name="Signup" component={Signup} />

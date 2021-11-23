@@ -7,16 +7,7 @@ const Home = ({ navigation }) => {
     return (
         <View>
             <Footer navigation={navigation}/>
-            {/* <Text> Hi </Text> */}
-            <Button 
-            title="NOMAD"
-            color= "#0000ff"
-             onPress={() => alert("WELCOME")}/>
-
-             {/* <Button 
-             title="signin"
-             onPress={() => navigation.navigate("Signin")}
-             /> */}
+        <Text> Hi </Text>
 
         </View>
         
