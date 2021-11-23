@@ -11,18 +11,44 @@ import ProfileList from "../profile/ProfileList";
 import TripUpdateModal from "../trips/TripUpdateModal";
 import TripDetail from "../trips/TripDetail";
 import AddButton from "../trips/AddButton";
-
+import authStore from "../../store/authStore";
+import { Button } from "native-base";
+import Signout from "../authentication/Signout";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
     <Navigator initialRouteName="Home">
-      <Screen name="Home" component={Home} oprtions={{ headerShown: false }} />
+      <Screen
+        name="Home"
+        component={Home}
+        oprtions={{
+          headerShown: false,
+        }}
+      />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
-      <Screen name="ProfileList" component={ProfileList} />
-      <Screen name="Profile" component={Profile} />
+      <Screen
+        name="ProfileList"
+        component={ProfileList}
+        options={({navigation}) => ({
+            title: "Users",
+            headerRight: () => <Signout navigation={navigation} />,
+          })}
+      />
+      <Screen
+        name="Profile"
+        component={Profile}
+        options={({ navigation, route }) => ({
+        //   const { profile } = route.params;
+        //   return {
+            // title: profile.name,
+            headerRight: () => <Signout navigation={navigation} />,
+        //   };
+        
+        })}
+      />
       <Screen
         name="TripDetail"
         component={TripDetail}
@@ -30,6 +56,7 @@ const RootNavigator = () => {
           const { trip } = route.params;
           return {
             title: trip.name,
+            headerRight: () => <Signout navigation={navigation} />,
           };
         }}
       />
@@ -41,7 +68,7 @@ const RootNavigator = () => {
           headerRight: () => <AddButton />,
         })}
       />
-           {/* <Screen
+      {/* <Screen
         name="TripUpdate"
         component={TripList}
         options={() => ({

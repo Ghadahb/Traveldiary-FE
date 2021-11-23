@@ -9,11 +9,8 @@ import {
   Center,
   HStack,
   Stack,
-  NativeBaseProvider,
-  ScrollView,
-  VStack,
 } from "native-base";
-import tripStore from "../../store/tripStore";
+
 import { Pressable } from "react-native";
 
 const TripItem = ({ trip, navigation }) => {
@@ -39,9 +36,7 @@ const TripItem = ({ trip, navigation }) => {
     >
       <Pressable
         onPress={() => {
-          navigation.navigate("TripDetail"
-          , { trip: trip }
-          );
+          navigation.navigate("TripDetail", { trip: trip });
           console.log("click");
         }}
       >
@@ -89,7 +84,7 @@ const TripItem = ({ trip, navigation }) => {
             {trip.subtitle}
           </Text>
         </Stack>
-        <Text fontWeight="400">{trip.description}</Text>
+        {/* <Text fontWeight="400">{trip.description}</Text> */}
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
             <Text

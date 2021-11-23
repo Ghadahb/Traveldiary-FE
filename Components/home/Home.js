@@ -13,6 +13,8 @@ import {
 } from "native-base";
 import Footer from "../footer/Footer";
 import TripUpdateModal from "../trips/TripUpdateModal";
+import authStore from "../../store/authStore";
+import { observer } from "mobx-react";
 
 const Home = ({ navigation }) => {
   return (
@@ -108,4 +110,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default observer(Home);

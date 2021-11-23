@@ -5,6 +5,7 @@ import TripItem from './TripItem';
 import tripStore from '../../store/tripStore';
 import { observer } from 'mobx-react-lite';
 import { ScrollView, Title, VStack, Stack, Heading, Center, ChevronLeftIcon, SwipeRow, Button, ChevronRightIcon, AddIcon } from "native-base";
+import authStore from '../../store/authStore';
 
 const TripList = ({ navigation }) => {
     const tripList = tripStore.trips.map((trip) => ( 
@@ -26,7 +27,6 @@ const TripList = ({ navigation }) => {
           shadow={"3"}
           >
           {tripList}
-           
                 </Stack>
                 </VStack>
                 </Center>
