@@ -13,6 +13,8 @@ import { useState } from "react";
 import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
+import { Image, Text, TouchableOpacity } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,6 +40,18 @@ const AddButton = () => {
   };
   const handleImage = (event) =>
     setTrip({ ...trip, image: event.target.files[0] });
+
+  const openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("Permission to access camera roll is required!");
+      return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    console.log(pickerResult);
+  }
 
   return (
     <Center flex={1} px="3">
@@ -80,12 +94,21 @@ const AddButton = () => {
                 </FormControl>
 
                 <FormControl.Label mt="3">Photo</FormControl.Label>
-                <Input
-                  name="image"
-                  type="file"
-                  // onChange={handleImage}
-                  onChangeText={(image) => setTrip({ ...trip, image })}
-                />
+                
+                  {/* <Input  */}
+                  {/* // name="image"
+                  // type="file"
+                  > */}
+            
+                  <TouchableOpacity onPress={openImagePickerAsync} >
+                    <Text >Pick a photo</Text>
+                  </TouchableOpacity>
+                {/* </Input> */}
+                  {/* // name="image"
+                  // type="file"
+                  // // onChange={handleImage}
+                  // onChangeText={(image) => setTrip({ ...trip, image })}
+                /> */}
               </FormControl>
 
               <FormControl>
