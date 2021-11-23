@@ -1,3 +1,4 @@
+
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import TripItem from "./TripItem";
@@ -14,6 +15,7 @@ const TripList = ({ navigation }) => {
   ));
   return <View>{tripList}</View>;
 };
+
 
 export default observer(TripList);
 
