@@ -1,33 +1,47 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { makeAutoObservable } from "mobx";
 import { instance } from "./instance";
 
 class TripStore {
+  trips = [];
+  isLoading = true;
 
-    trips = [];
-    isLoading = true;
-
-    constructor() {
-        makeAutoObservable(this);
-    }
-
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   fetchTrips = async () => {
     try {
-        const response = await instance.get("/trip"); 
-        // check s
-        this.trips = response.data;
-        this.isLoading = false;
-      } catch (error) {
-        console.log("TripStore -> fetchTrips -> error", error);
+      const response = await instance.get("/trip");
+      // check s
+      this.trips = response.data;
+      this.isLoading = false;
+    } catch (error) {
+      console.log("TripStore -> fetchTrips -> error", error);
+    }
+  };
+
+  
+  createTrip = async (newTrip) => {
+    try {
+      const formData = new FormData();
+      for (const key in newTrip) {
+        formData.append(key, newTrip[key]);
       }
+      const response = await instance.post("/trips", formData);
+      this.trips.push(response.data);
+    } catch (error) {
+      console.log(
+        "🚀 ~ file: tripStore.js ~ line 16 ~ TripStore ~ createTrip= ~ error",
+        error
+      );
+    }
   };
 }
-  
 
-  const tripStore = new TripStore();
-  tripStore.fetchTrips();
-  export default tripStore;
+const tripStore = new TripStore();
+tripStore.fetchTrips();
+export default tripStore;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
