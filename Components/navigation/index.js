@@ -36,7 +36,7 @@ const RootNavigator = () => {
        <Navigator
        initialRouteName="TripDetail">
            <Screen name="Home" component={Home}
-           oprtions={{ headerShown: false }}
+        //    oprtions={{ headerShown: false }}
            />
            <Screen name ="Signin" component={Signin} />
                <Screen name="Signup" component={Signup} />

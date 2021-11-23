@@ -1,5 +1,5 @@
-import React from "react"
-import { baseURL } from "../../store/instance"
+import React from "react";
+import { baseURL } from "../../store/instance";
 import {
   Box,
   Heading,
@@ -10,17 +10,24 @@ import {
   HStack,
   Stack,
   NativeBaseProvider,
-} from "native-base"
-import tripStore from "../../store/tripStore"
+  ScrollView,
+  VStack,
+} from "native-base";
+import tripStore from "../../store/tripStore";
+import { Pressable } from "react-native";
 
 const TripItem = ({ trip, navigation }) => {
   return (
-   
-      <Stack space={3} alignItems="center">
-        <Text>{trip.name}</Text>
+    // <Pressable
+    // onPress={() => {
+    //   navigation.navigate('TripDetail', { trip: trip});
+    //   console.log('click');
+    // }}
+    // >
+
     <Box
       maxW="80"
-      rounded="lg"
+      rounded="sm"
       overflow="hidden"
       borderColor="coolGray.200"
       borderWidth="1"
@@ -35,15 +42,13 @@ const TripItem = ({ trip, navigation }) => {
       _light={{
         backgroundColor: "gray.50",
       }}
+      shadow={"3"}
     >
       <Box>
         <AspectRatio w="100%" ratio={16 / 9}>
-          <Image
-            source={{
-              uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-            }}
-            alt="image"
-          />
+          <Image source={{ uri: baseURL + trip.image }} 
+          
+          alt="image"/>
         </AspectRatio>
         <Center
           bg="#0000ff"
@@ -60,13 +65,14 @@ const TripItem = ({ trip, navigation }) => {
           px="3"
           py="1.5"
         >
-          LONDON
+          {trip.name}
         </Center>
       </Box>
+
       <Stack p="4" space={3}>
         <Stack space={2}>
           <Heading size="md" ml="-1">
-            My Trip To The UK
+            {trip.title}
           </Heading>
           <Text
             fontSize="xs"
@@ -80,12 +86,10 @@ const TripItem = ({ trip, navigation }) => {
             ml="-0.5"
             mt="-1"
           >
-            Through London's streets and food..
+            {trip.subtitle}
           </Text>
         </Stack>
-        <Text fontWeight="400">
-         Blah Blah description about trip
-        </Text>
+        <Text fontWeight="400">{trip.description}</Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
             <Text
@@ -95,15 +99,20 @@ const TripItem = ({ trip, navigation }) => {
               }}
               fontWeight="400"
             >
-              Nov 22, 2021
+              {trip.from}
+              {trip.to}
             </Text>
           </HStack>
         </HStack>
       </Stack>
     </Box>
-    </Stack>
-  )
-}
+    // </Center>
+    // </Stack>
+    // </VStack>
+    // </ScrollView>
+    // </Pressable>
+  );
+};
 
 export default TripItem;
 

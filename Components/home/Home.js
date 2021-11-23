@@ -8,6 +8,7 @@ import { Button } from "native-base";
 import Footer from "../footer/Footer";
 
 const Home = ({ navigation }) => {
+
   return (
     <View>
 
@@ -55,6 +56,7 @@ const Home = ({ navigation }) => {
     </View>
   );
 };
+
 
 export default Home;
 
