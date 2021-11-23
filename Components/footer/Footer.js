@@ -23,6 +23,8 @@
 // import { useState } from "react";
 // import Signin from "../authentication/Signin";
 
+import authStore from "../../store/authStore";
+
 
 // function Footer ({ navigation }) {
 //   const [selected, setSelected] = React.useState(1);
@@ -36,6 +38,7 @@
 //   navigation.replace("Signin");
 // };
 
+// {authStore.}
 //   return (
 //       <View>
 //     <NativeBaseProvider>

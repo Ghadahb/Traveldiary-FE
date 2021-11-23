@@ -41,7 +41,7 @@ class TripStore {
     }
   };
   
-   updateTrip = async (updateTrip, tripId) => {
+   deleteTrip = async (updateTrip, tripId) => {
   try {
     const res = await instance.put(`/trips/${tripId}`, updateTrip);
     this.trips = this.trips.map((trip) =>

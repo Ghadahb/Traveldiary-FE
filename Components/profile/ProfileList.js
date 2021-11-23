@@ -12,22 +12,12 @@ const ProfileList = () => {
     <profileItem profile={profile} key={profile._id} />
   ));
 // function({trip}){
-//     const handleDelete = () => tripStore.deleteTrip(trip._id);
-// }
 
   return (
     <View>
         <SearchBar/>
         <Text>checking</Text>
       <Text>{profileList}</Text>
-
-      <Button 
-        mt="2" 
-        colorScheme="indigo" 
-        onPress={handleDelete}
-        backgroundColor="#0000ff">
-          Delete
-        </Button>
 
     </View>
   );
