@@ -30,8 +30,18 @@ class TripStore {
     }
   };
 
-
-   updateTrip = async (updateTrip, tripId) => {
+  updateTrip = async (updateTrip, tripId) => {
+    try {
+      const res = await instance.put(`/trips/${tripId}`, updateTrip);
+      this.trips = this.trips.map((trip) =>
+        trip._id === tripId ? res.data : trip
+      );
+    } catch (error) {
+      console.log("tripStore -> updateTrip -> error", error);
+    }
+  };
+  
+   deleteTrip = async (updateTrip, tripId) => {
   try {
     const res = await instance.put(`/trips/${tripId}`, updateTrip);
     this.trips = this.trips.map((trip) =>
