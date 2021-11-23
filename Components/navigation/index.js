@@ -8,14 +8,15 @@ import Profile from '../user/Profile';
 import TripList from '../trips/TripList';
 import TripStore from '../../store/tripStore';
 import ProfileList from '../profile/profileList';
-
+import TripUpdateModal from '../trips/TripUpdateModal';
+import TripDetail from '../trips/TripDetail';
 
 const RootNavigator = () => {
 const { Navigator, Screen } = createStackNavigator();
 
     return (
        <Navigator
-       initialRouteName="ProfileList">
+       initialRouteName="TripDetail">
            <Screen name="Home" component={Home}
            oprtions={{ headerShown: false }}
            />
@@ -24,6 +25,7 @@ const { Navigator, Screen } = createStackNavigator();
             <Screen name="Profile" component={Profile} />
             <Screen name="TripList" component={TripList} />
            <Screen name="ProfileList" component={ProfileList}/>
+       <Screen name="TripDetail" component={TripDetail}/>
        </Navigator>
     );
 };

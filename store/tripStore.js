@@ -38,8 +38,19 @@ class TripStore {
       );
     }
   };
-}
 
+
+   updateTrip = async (updateTrip, tripId) => {
+  try {
+    const res = await instance.put(`/trips/${tripId}`, updateTrip);
+    this.trips = this.trips.map((trip) =>
+      trip._id === tripId ? res.data : trip
+    );
+  } catch (error) {
+    console.log("tripStore -> updateTrip -> error", error);
+  }
+};
+}
 const tripStore = new TripStore();
 tripStore.fetchTrips();
 export default tripStore;
