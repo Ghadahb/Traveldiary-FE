@@ -1,9 +1,8 @@
 import React from "react";
 import Home from "../home/Home";
 import Signin from "../authentication/Signin";
-
 import { createStackNavigator } from "@react-navigation/stack";
-
+import { observer } from "mobx-react";
 import Signup from "../authentication/Signup";
 import Profile from "../user/Profile";
 import TripList from "../trips/TripList";
@@ -11,15 +10,14 @@ import TripStore from "../../store/tripStore";
 import ProfileList from "../profile/ProfileList";
 import TripUpdateModal from "../trips/TripUpdateModal";
 import TripDetail from "../trips/TripDetail";
-
 import AddButton from "../trips/AddButton";
-import TripDetail from "../trips/TripDetail";
+
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName="TripDetail">
+    <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} oprtions={{ headerShown: false }} />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
@@ -29,22 +27,21 @@ const RootNavigator = () => {
       <Screen
         name="TripDetail"
         component={TripDetail}
-        options={({ route, navigation }) => {
-          const trip = route.params.trip;
+        options={({ navigation, route }) => {
+          const { trip } = route.params;
           return {
             title: trip.name,
           };
         }}
       />
-
       <Screen
         name="TripList"
         component={TripList}
         options={() => ({
+          title: "Explore",
           headerRight: () => <AddButton />,
         })}
       />
-
            <Screen name="ProfileList" component={ProfileList}/>
            <Screen
         name="TripUpdate"
@@ -53,9 +50,8 @@ const RootNavigator = () => {
           headerRight: () => <TripUpdateModal />,
         })}
       />
-
     </Navigator>
   );
 };
 
-export default RootNavigator;
+export default observer(RootNavigator);

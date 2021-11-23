@@ -1,10 +1,6 @@
 import React from "react";
-
-
 import { StyleSheet, Text, View } from "react-native";
 import {Box, Heading, HStack,Stack} from "native-base"
-
-
 import { Button, VStack,
     Image,
     ScrollView,
@@ -50,6 +46,7 @@ const Home = ({ navigation }) => {
         </Center>
       </Box>
       <Footer navigation={navigation} />
+
       {/* <Text> Hi </Text> */}
 
 
