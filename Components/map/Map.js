@@ -3,8 +3,6 @@
 // import { geolocated } from "react-geolocated";
 // import { Button } from 'native-base';
 
-
-
 // function Map({ img_src, lat,lng,onMarkerClick}) {
 //   return (
 //     // <div>Hi</div>
@@ -19,7 +17,6 @@
 //     const [lats, setLats] = useState( 0);
 //     const [lngs, setLngs] = useState( 0);
 //     const [status, setStatus] = useState(null);
-
 
 //      const getLocation = () => {
 //     if (!navigator.geolocation) {
@@ -52,18 +49,17 @@
 //    return marker;
 //  };
 
-
 //   function handleFindMe(){
 //     setCenter({lat:lats, lng:lngs})
 //   }
 //   let places = [
 //       {
-//           lat:lats, lng:lngs, 
+//           lat:lats, lng:lngs,
 //       }
 //   ]
 //     return (
 //         <>
-            
+
 //             <Button name="btn" onPress={handleFindMe} variant="primary">My location</Button>
 //              <p>{status}</p>
 //             <div style={{ height: '100vh', width: '100%' }} >
