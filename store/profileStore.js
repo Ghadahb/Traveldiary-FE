@@ -32,6 +32,7 @@ class ProfileStore {
       }
       const response = await instance.post("/trips", formData);
       this.trips.push(response.data);
+      this.isLoading= false
     } catch (error) {
       console.log(
         "🚀 ~ file: tripStore.js ~ line 16 ~ TripStore ~ createTrip= ~ error",
