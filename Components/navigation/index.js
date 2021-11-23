@@ -44,6 +44,16 @@ const RootNavigator = () => {
           headerRight: () => <AddButton />,
         })}
       />
+
+           <Screen name="ProfileList" component={ProfileList}/>
+           <Screen
+        name="TripUpdate"
+        component={TripList}
+        options={() => ({
+          headerRight: () => <TripUpdateModal />,
+        })}
+      />
+
     </Navigator>
   );
 };
