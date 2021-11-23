@@ -14,7 +14,6 @@ class TripStore {
   fetchTrips = async () => {
     try {
       const response = await instance.get("/trip");
-      // check s
       this.trips = response.data;
       this.isLoading = false;
     } catch (error) {
@@ -22,20 +21,12 @@ class TripStore {
     }
   };
 
-  
   createTrip = async (newTrip) => {
     try {
-      const formData = new FormData();
-      for (const key in newTrip) {
-        formData.append(key, newTrip[key]);
-      }
-      const response = await instance.post("/trips", formData);
+      const response = await instance.post("/trip", newTrip);
       this.trips.push(response.data);
     } catch (error) {
-      console.log(
-        "🚀 ~ file: tripStore.js ~ line 16 ~ TripStore ~ createTrip= ~ error",
-        error
-      );
+      console.log(error);
     }
   };
 }
