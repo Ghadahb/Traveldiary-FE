@@ -30,24 +30,14 @@ const RootNavigator = () => {
           headerRight: () => <AddButton />,
         })}
       />
-
-
-    return (
-       <Navigator
-       initialRouteName="TripDetail">
-           <Screen name="Home" component={Home}
-           oprtions={{ headerShown: false }}
-           />
-           <Screen name ="Signin" component={Signin} />
-               <Screen name="Signup" component={Signup} />
-            <Screen name="Profile" component={Profile} />
-            <Screen name="TripList" component={TripList} />
            <Screen name="ProfileList" component={ProfileList}/>
-       <Screen name="TripDetail" component={TripDetail}/>
-       </Navigator>
-    );
-
-      <Screen name="ProfileList" component={ProfileList} />
+           <Screen
+        name="TripUpdate"
+        component={TripList}
+        options={() => ({
+          headerRight: () => <TripUpdateModal />,
+        })}
+      />
     </Navigator>
   );
 
