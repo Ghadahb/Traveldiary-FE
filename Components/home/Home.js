@@ -51,6 +51,7 @@ const Home = ({ navigation }) => {
 
       {/* <Footer navigation={navigation}/> */}
       {/* <Text> Hi </Text> */}
+
       <Stack space="2" alignItems="center">
         <HStack space="2" alignItems="center">
           <Center>
@@ -106,6 +107,7 @@ const Home = ({ navigation }) => {
           </Center>
         </HStack>
       </Stack>
+
     </View>
   );
 };

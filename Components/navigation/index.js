@@ -29,6 +29,9 @@ const RootNavigator = () => {
       />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
+
+      <Screen name="Map" component={Map} />
+
       <Screen
         name="ProfileList"
         component={ProfileList}
@@ -60,6 +63,7 @@ const RootNavigator = () => {
           };
         }}
       />
+
       <Screen
         name="TripList"
         component={TripList}
