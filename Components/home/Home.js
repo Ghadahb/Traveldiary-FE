@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import { StyleSheet, Text, View } from "react-native";
 import {Box, Heading, HStack,Stack} from "native-base"
 
@@ -12,10 +13,13 @@ import { Button, VStack,
 import Footer from "../footer/Footer";
 import TripUpdateModal from "../trips/TripUpdateModal";
 
+
 const Home = ({ navigation }) => {
+
   return (
       
     <View>
+
   <ScrollView px="20">
       <Center mt="3">
         <VStack space={2} alignItems="center" safeAreaTop my={6}>
@@ -36,15 +40,18 @@ const Home = ({ navigation }) => {
       <Box>
           <Center>
         <Heading size="xl" mb="4">
+
           Trip
-        </Heading>
+        
         <Text fontSize="xl">
           (noun) a journey or excursion, especially for pleasure.
         </Text>
+
         </Center>
       </Box>
       <Footer navigation={navigation} />
       {/* <Text> Hi </Text> */}
+
 
       {/* <Footer navigation={navigation}/> */}
       {/* <Text> Hi </Text> */}
@@ -101,7 +108,9 @@ const Home = ({ navigation }) => {
     </View>
   );
 };
+
 // #ffd700
+
 export default Home;
 
 const styles = StyleSheet.create({});
