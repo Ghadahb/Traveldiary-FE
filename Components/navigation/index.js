@@ -7,14 +7,14 @@ import Signup from "../authentication/Signup";
 import Profile from "../user/Profile";
 import TripList from "../trips/TripList";
 import TripStore from "../../store/tripStore";
-import ProfileList from "../profile/profileList";
+import ProfileList from "../profile/ProfileList";
 import AddButton from "../trips/AddButton";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName="TripList">
+    <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} oprtions={{ headerShown: false }} />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
@@ -22,9 +22,9 @@ const RootNavigator = () => {
       <Screen
         name="TripList"
         component={TripList}
-        // options={() => ({
-        //   headerRight: () => <AddButton />,
-        // })}
+        options={() => ({
+          headerRight: () => <AddButton />,
+        })}
       />
 
       <Screen name="ProfileList" component={ProfileList} />

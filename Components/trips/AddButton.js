@@ -36,7 +36,7 @@ const AddButton = () => {
   return (
     <Center flex={1} px="3">
       <>
-        <Button onPress={() => setShowModal(true)}>Button</Button>
+        <Button onPress={() => setShowModal(true)}>+</Button>
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />
