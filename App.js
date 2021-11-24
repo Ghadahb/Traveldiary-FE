@@ -9,7 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components";
 import Profile from "./Components/user/Profile";
 import Travels from "./Components/trips/TripItem";
-
+// REVIEW: Remove unused imports
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -18,12 +18,12 @@ export default function App() {
       <NavigationContainer>
         {/* <Home /> */}
         <RootNavigator />
-       
       </NavigationContainer>
     </NativeBaseProvider>
   );
 }
 
+// REVIEW: Remove styles if not used
 const styles = StyleSheet.create({
   container: {
     flex: 1,

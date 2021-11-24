@@ -5,26 +5,23 @@ import authStore from "../../store/authStore";
 import profileStore from "../../store/profileStore";
 import SearchBar from "./SearchBar";
 import tripStore from "../../store/tripStore";
+// REVIEW: Remove unused imports
 
 const ProfileList = () => {
-
-  const profileList =profileStore.profiles.map((profile) => (
+  const profileList = profileStore.profiles.map((profile) => (
     <profileItem profile={profile} key={profile._id} />
   ));
-// function({trip}){
+  // REVIEW: Remove commented out code
+  // function({trip}){
 
   return (
     <View>
-        <SearchBar/>
-        <Text>checking</Text>
+      <SearchBar />
+      <Text>checking</Text>
       <Text>{profileList}</Text>
-
     </View>
   );
 };
-
-
-
 
 export default observer(ProfileList);
 

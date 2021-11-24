@@ -3,7 +3,7 @@ import decode from "jwt-decode";
 import { instance } from "../store/instance";
 import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from "expo-image-picker";
 
 class AuthStore {
   user = null;
@@ -13,7 +13,7 @@ class AuthStore {
 
   checkForToken = async () => {
     try {
-      this.user = null
+      this.user = null;
       const token = await AsyncStorage.getItem("myToken");
       if (token) {
         const currentTime = Date.now(); // give us the current time
@@ -31,6 +31,7 @@ class AuthStore {
     try {
       await AsyncStorage.setItem("myToken", token);
       this.user = decode(token);
+      // REVIEW: Remove commented out code
       //   console.log(this.user);
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     } catch (error) {}
@@ -55,10 +56,10 @@ class AuthStore {
 
   signin = async (user, navigation, toast) => {
     try {
-        
       const response = await instance.post("/signin", user);
       this.setUser(response.data.token);
-      if (! this.user) {
+      // REVIEW: This should be in the catch
+      if (!this.user) {
         toast.show({
           title: "Invalid login",
           status: "error",
@@ -69,10 +70,7 @@ class AuthStore {
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
     }
-  
   };
-  
-  
 }
 
 const authStore = new AuthStore();

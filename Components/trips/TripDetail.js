@@ -20,6 +20,7 @@ import { Pressable } from "react-native";
 import { baseURL } from "../../store/instance";
 import tripStore from "../../store/tripStore";
 import TripUpdateModal from "./TripUpdateModal";
+// REVIEW: Remove unused imports
 
 const TripDetail = ({ route }) => {
   if (tripStore.isLoading) {
@@ -33,7 +34,6 @@ const TripDetail = ({ route }) => {
   //   const trip = tripStore.trips.find ((trip) => trip._id === trip);
 
   return (
-
     <Box
       maxW="80"
       rounded="sm"
@@ -121,7 +121,6 @@ const TripDetail = ({ route }) => {
         </HStack>
       </Stack>
     </Box>
-  
   );
 };
 

@@ -23,6 +23,7 @@ const Signin = ({ navigation }) => {
 
   const handleSubmit = () => {
     authStore.signin(user, navigation, toast);
+    // REVIEW: This should be inside the signin method in the store, so that it only goes to the home page if you're logged in
     navigation.replace("Home");
   };
   return (
@@ -101,6 +102,7 @@ const Signin = ({ navigation }) => {
 
 export default Signin;
 
+// REVIEW: Remove commented out code
 // export default () => {
 //   return (
 //     <NativeBaseProvider>

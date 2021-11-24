@@ -15,6 +15,7 @@ import Footer from "../footer/Footer";
 import TripUpdateModal from "../trips/TripUpdateModal";
 import authStore from "../../store/authStore";
 import { observer } from "mobx-react";
+// REVIEW: Remove unused imports
 
 const Home = ({ navigation }) => {
   return (
@@ -107,7 +108,6 @@ const Home = ({ navigation }) => {
           </Center>
         </HStack>
       </Stack>
-
     </View>
   );
 };

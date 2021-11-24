@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from "react-native";
+// REVIEW: Remove unused imports
 
 const Profile = () => {
   return (

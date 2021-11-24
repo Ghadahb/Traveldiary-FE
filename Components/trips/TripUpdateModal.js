@@ -13,6 +13,7 @@ import { useState } from "react";
 import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
+// REVIEW: Remove unused imports
 
 const TripUpdateModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -20,6 +21,8 @@ const TripUpdateModal = () => {
     name: "",
     // image: "",
   });
+
+  // REVIEW: Remove commented out code
 
   //   const handleChange = (event) =>
   //     setTrip({ ...trip, [event.target.name]: event.target.value });

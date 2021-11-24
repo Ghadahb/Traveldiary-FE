@@ -14,6 +14,7 @@ import AddButton from "../trips/AddButton";
 import authStore from "../../store/authStore";
 import { Button } from "native-base";
 import Signout from "../authentication/Signout";
+// REVIEW: Remove unused imports
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -23,33 +24,33 @@ const RootNavigator = () => {
       <Screen
         name="Home"
         component={Home}
+        // Typo
         oprtions={{
           headerShown: false,
         }}
       />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
-
+      {/* REVIEW: Since the component is commented out, comment it here as well, it might cause issues */}
       <Screen name="Map" component={Map} />
 
       <Screen
         name="ProfileList"
         component={ProfileList}
-        options={({navigation}) => ({
-            title: "Users",
-            headerRight: () => <Signout navigation={navigation} />,
-          })}
+        options={({ navigation }) => ({
+          title: "Users",
+          headerRight: () => <Signout navigation={navigation} />,
+        })}
       />
       <Screen
         name="Profile"
         component={Profile}
         options={({ navigation, route }) => ({
-        //   const { profile } = route.params;
-        //   return {
-            // title: profile.name,
-            headerRight: () => <Signout navigation={navigation} />,
-        //   };
-        
+          //   const { profile } = route.params;
+          //   return {
+          // title: profile.name,
+          headerRight: () => <Signout navigation={navigation} />,
+          //   };
         })}
       />
       <Screen

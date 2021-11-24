@@ -14,6 +14,7 @@ import {
 } from "native-base";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+// REVIEW: Remove unused imports
 
 const SearchBar = () => {
   return (

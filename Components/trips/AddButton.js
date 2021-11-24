@@ -13,8 +13,9 @@ import { useState } from "react";
 import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
-import { Image, Text, TouchableOpacity } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
+import { Image, Text, TouchableOpacity } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+// REVIEW: Remove unused imports
 
 const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
@@ -27,6 +28,7 @@ const AddButton = () => {
     date: "",
   });
 
+  // REVIEW: Remove commented out code
   //   const handleChange = (event) =>
   //     setTrip({ ...trip, [event.target.name]: event.target.value });
 
@@ -42,7 +44,8 @@ const AddButton = () => {
     setTrip({ ...trip, image: event.target.files[0] });
 
   const openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    let permissionResult =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
 
     if (permissionResult.granted === false) {
       alert("Permission to access camera roll is required!");
@@ -51,10 +54,11 @@ const AddButton = () => {
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
     console.log(pickerResult);
-  }
+  };
 
   return (
     <Center flex={1} px="3">
+      {/* REVIEW: No need for the fragment */}
       <>
         <Button onPress={() => setShowModal(true)} backgroundColor="#0000ff">
           +
@@ -94,17 +98,17 @@ const AddButton = () => {
                 </FormControl>
 
                 <FormControl.Label mt="3">Photo</FormControl.Label>
-                
-                  {/* <Input  */}
-                  {/* // name="image"
+
+                {/* <Input  */}
+                {/* // name="image"
                   // type="file"
                   > */}
-            
-                  <TouchableOpacity onPress={openImagePickerAsync} >
-                    <Text >Pick a photo</Text>
-                  </TouchableOpacity>
+
+                <TouchableOpacity onPress={openImagePickerAsync}>
+                  <Text>Pick a photo</Text>
+                </TouchableOpacity>
                 {/* </Input> */}
-                  {/* // name="image"
+                {/* // name="image"
                   // type="file"
                   // // onChange={handleImage}
                   // onChangeText={(image) => setTrip({ ...trip, image })}

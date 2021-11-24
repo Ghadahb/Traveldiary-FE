@@ -8,6 +8,7 @@ import navigation from "../navigation";
 const Signout = ({ navigation }) => {
   return (
     <View>
+      {/* REVIEW: Better way to write it: !authStore.user ?  */}
       {authStore.user === null ? (
         <Button
           onPress={() => {

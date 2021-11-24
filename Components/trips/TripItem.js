@@ -37,6 +37,7 @@ const TripItem = ({ trip, navigation }) => {
       <Pressable
         onPress={() => {
           navigation.navigate("TripDetail", { trip: trip });
+          // REVIEW: Remove console log if its done
           console.log("click");
         }}
       >
