@@ -18,7 +18,8 @@ export default function App() {
       <NavigationContainer>
         {/* <Home /> */}
         <RootNavigator />
-       
+
+
       </NavigationContainer>
     </NativeBaseProvider>
   );

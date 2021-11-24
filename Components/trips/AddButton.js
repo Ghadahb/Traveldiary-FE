@@ -9,15 +9,42 @@ import {
   Form,
   NativeBaseProvider,
 } from "native-base";
-import { useState } from "react";
 import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
-import { Image, Text, TouchableOpacity } from 'react-native';
+import { Image, Text, TouchableOpacity } from "react-native";
+import  { useState, useEffect } from 'react';
+import { View, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 const AddButton = () => {
-  const [showModal, setShowModal] = useState(false);
+    // const _pickImage = async () => {
+    //     try {
+    //         let result = await ImagePicker.launchImageLibraryAsync({
+    //             mediaTypes: ImagePicker.MediaTypeOptions.All,
+    //             allowsEditing: true,
+    //             aspect: [4, 3],
+    
+    //             quality: 1,
+    //         });
+    
+    //         if (!result.cancelled) {
+    //             const localUri = result.uri;
+    //             const filename = localUri.split("/").pop();
+    //             const match = /.(\w+)$/.exec(filename);
+    //             const image = {
+    //                 uri: localUri,
+    //                 name: filename,
+    //                 type: match ? image/${match[1]} : image,
+    //             };
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+  
+  
+    const [showModal, setShowModal] = useState(false);
   const [trip, setTrip] = useState({
     name: "",
     title: "",
@@ -41,17 +68,57 @@ const AddButton = () => {
   const handleImage = (event) =>
     setTrip({ ...trip, image: event.target.files[0] });
 
-  const openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+  //   const openImagePickerAsync = async () => {
+  //     let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-    if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!");
-      return;
-    }
+  //     if (permissionResult.granted === false) {
+  //       alert("Permission to access camera roll is required!");
+  //       return;
+  //     }
 
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    console.log(pickerResult);
-  }
+  //     let pickerResult = await ImagePicker.launchImageLibraryAsync();
+  //     console.log(pickerResult);
+  //   }
+  
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== "web") {
+        const { status } =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== "granted") {
+          alert("Sorry, we need camera roll permissions to make this work!");
+        }
+      }
+    })();
+  }, []);
+
+  const pickImage = async () => {
+        try {
+            let result = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.All,
+                allowsEditing: true,
+                aspect: [4, 3],
+    
+                quality: 1,
+            });
+    
+            if (!result.cancelled) {
+                const localUri = result.uri;
+                const filename = localUri.split("/").pop();
+                const match = /.(\w+)$/.exec(filename);
+                const image = {
+                    uri: localUri,
+                    name: filename,
+                    type: `match ? image/${match[1]} : image`,
+                };
+                setTrip({ ...trip, image: image });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+};
 
   return (
     <Center flex={1} px="3">
@@ -94,17 +161,35 @@ const AddButton = () => {
                 </FormControl>
 
                 <FormControl.Label mt="3">Photo</FormControl.Label>
-                
-                  {/* <Input  */}
-                  {/* // name="image"
+
+                {/* <Input  */}
+                {/* // name="image"
                   // type="file"
                   > */}
-            
-                  <TouchableOpacity onPress={openImagePickerAsync} >
+                <View
+                  style={{
+                    flex: 1,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Button
+                    title="Pick an image from camera roll"
+                    onPress={pickImage}
+                  />
+                  {image && (
+                    <Image
+                      source={{ uri: image }}
+                      style={{ width: 200, height: 200 }}
+                    />
+                  )}
+                </View>
+
+                {/* <TouchableOpacity onPress={openImagePickerAsync} >
                     <Text >Pick a photo</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
                 {/* </Input> */}
-                  {/* // name="image"
+                {/* // name="image"
                   // type="file"
                   // // onChange={handleImage}
                   // onChangeText={(image) => setTrip({ ...trip, image })}
