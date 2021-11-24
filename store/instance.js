@@ -1,6 +1,10 @@
 import axios from "axios";
 
+//Amnah
+export const baseURL = "http://192.168.8.149:8005";
+
 // export const baseURL = "http://192.168.8.149:8005";
+
 
 // Ghadah
 // export const baseURL  = "http://172.20.10.3:8005";
