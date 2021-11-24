@@ -14,29 +14,33 @@ import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
 
-const TripUpdateModal = () => {
+const TripUpdateModal = ({trip}) => {
   const [showModal, setShowModal] = useState(false);
-  const [trip, setTrip] = useState({
-    name: "",
-    // image: "",
-  });
-
+  const [newtrip, setTrip] = useState({
+      name: trip.name, 
+    }
+);
+const handleUpdate = () => {
+  tripStore.updateTrip(trip._id, newtrip);
+  console.log(trip._id);
+};
   //   const handleChange = (event) =>
   //     setTrip({ ...trip, [event.target.name]: event.target.value });
 
   //   const handleImage = (event) =>
   //     setTrip({ ...trip, image: event.target.files[0] });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    tripStore.updateTrip(trip);
-    // handleClose();
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   tripStore.updateTrip(trip);
+  //   // handleClose();
+  // };
+ 
 
   return (
     <Center flex={1} px="3">
       <>
-        <Button onPress={() => setShowModal(true)}>Update Trip</Button>
+        <Button onPress={() => setShowModal(true)}>Update</Button>
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />
@@ -46,14 +50,14 @@ const TripUpdateModal = () => {
                 <FormControl.Label>Title</FormControl.Label>
                 <Input onChangeText={(name) => setTrip({ ...trip, name })} />
               </FormControl>
-              <FormControl mt="3">
-                <FormControl.Label>Photo</FormControl.Label>
+              {/* <FormControl mt="3"> */}
+                {/* <FormControl.Label>Photo</FormControl.Label>
                 <Input
                   name="image"
                   type="file"
                   onChangeText={(image) => setTrip({ ...trip, image })}
                 />
-              </FormControl>
+              </FormControl> */}
             </Modal.Body>
 
             <Modal.Footer>
@@ -67,7 +71,7 @@ const TripUpdateModal = () => {
                 >
                   Cancel
                 </Button>
-                <Button onPress={handleSubmit}>Save</Button>
+                <Button onPress={handleUpdate}>save</Button>
               </Button.Group>
             </Modal.Footer>
           </Modal.Content>
