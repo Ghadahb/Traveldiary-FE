@@ -14,6 +14,7 @@ import AddButton from "../trips/AddButton";
 import authStore from "../../store/authStore";
 import { Button } from "native-base";
 import Signout from "../authentication/Signout";
+import { Footer } from "../footer/Footer";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -24,11 +25,15 @@ const RootNavigator = () => {
         name="Home"
         component={Home}
         oprtions={{
+            // title: "Explore",
           headerShown: false,
+          
+          
         }}
       />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
+      {/* <Screen name="Footer" component={Footer} /> */}
 
       <Screen name="Map" component={Map} />
 
@@ -70,6 +75,8 @@ const RootNavigator = () => {
         options={() => ({
           title: "Explore",
           headerRight: () => <AddButton />,
+        //   headerRight: (navigation) => <Footer navigation={navigation} />,
+        
         })}
       />
       {/* <Screen
