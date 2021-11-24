@@ -35,10 +35,12 @@ const TripDetail = ({ route }) => {
   return (
 
     <Box
-      maxW="80"
+      maxW="100%"
       rounded="sm"
       overflow="hidden"
       borderColor="coolGray.200"
+      marginLeft="0"
+      marginRight="0"
       borderWidth="1"
       _dark={{
         borderColor: "coolGray.600",

@@ -11,10 +11,10 @@ import {
   Center,
   NativeBaseProvider,
 } from "native-base";
-import Footer from "../footer/Footer";
 import TripUpdateModal from "../trips/TripUpdateModal";
 import authStore from "../../store/authStore";
 import { observer } from "mobx-react";
+import Footer from "../footer/Footer";
 
 const Home = ({ navigation }) => {
   return (
@@ -22,7 +22,9 @@ const Home = ({ navigation }) => {
       <ScrollView px="20">
         <Center mt="3">
           <VStack space={2} alignItems="center" safeAreaTop my={6}>
+          
             {
+              
               <Image
                 width={250}
                 height={250}
@@ -40,6 +42,7 @@ const Home = ({ navigation }) => {
         <Box>
           <Heading size="xl" mb="4">
             Trip
+
           </Heading>
           <Text fontSize="xl">
             (noun) a journey or excursion, especially for pleasure.
@@ -57,7 +60,7 @@ const Home = ({ navigation }) => {
           <Center>
             <Button
               size="16"
-              bg="primary.400:alpha.30"
+              backgroundColor="#0000ff"
               rounded="md"
               _text={{
                 color: "white",
@@ -68,13 +71,13 @@ const Home = ({ navigation }) => {
               height="50"
               onPress={() => navigation.navigate("TripList")}
             >
-              Trip List
+              Explore
             </Button>
           </Center>
           <Center>
             <Button
               size="16"
-              bg="primary.400:alpha.30"
+              backgroundColor="#0000ff"
               rounded="md"
               _text={{
                 color: "white",
@@ -83,6 +86,8 @@ const Home = ({ navigation }) => {
               color="#0000ff"
               width="50"
               height="50"
+              // margin="20"
+
               onPress={() => navigation.navigate("Signin")}
             >
               Sign in
@@ -91,7 +96,7 @@ const Home = ({ navigation }) => {
           <Center>
             <Button
               size="16"
-              bg="primary.400:alpha.30"
+              backgroundColor="#0000ff"
               rounded="md"
               _text={{
                 color: "white",
@@ -107,7 +112,6 @@ const Home = ({ navigation }) => {
           </Center>
         </HStack>
       </Stack>
-
     </View>
   );
 };
