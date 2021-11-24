@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import TripItem from './TripItem';
 import tripStore from '../../store/tripStore';
 import { observer } from 'mobx-react-lite';
-import { ScrollView, Title, VStack, Stack, Heading, Center, ChevronLeftIcon, SwipeRow, Button, ChevronRightIcon, AddIcon } from "native-base";
+import { ScrollView, Title, VStack, Stack, HStack, Heading, Center, ChevronLeftIcon, SwipeRow, Button, ChevronRightIcon, AddIcon } from "native-base";
 import authStore from '../../store/authStore';
 
 const TripList = ({ navigation }) => {
@@ -14,13 +14,13 @@ const TripList = ({ navigation }) => {
         return (
           
         <ScrollView
-        horizontal={true} 
+        vertical={true} 
         >
         <Center>
-        <VStack space="2.5" mt="4" maxW="100%">
+        <HStack space="2.5" mt="4" maxW="100%">
           <Stack 
           maxW="100%"
-          direction="row" 
+          direction="column" 
           marginLeft="0"
           marginRight="0"
     //   borderWidth="0.5"
@@ -32,7 +32,7 @@ const TripList = ({ navigation }) => {
           >
           {tripList}
                 </Stack>
-                </VStack>
+                </HStack>
                 </Center>
             </ScrollView>
             

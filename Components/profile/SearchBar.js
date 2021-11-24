@@ -13,7 +13,7 @@ import {
   Heading,
 } from "native-base";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 const SearchBar = () => {
   return (
