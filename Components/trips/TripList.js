@@ -12,19 +12,23 @@ const TripList = ({ navigation }) => {
         <TripItem navigation={navigation} trip={trip} key={trip._id} /> 
             ));
         return (
-         
+          
         <ScrollView
-        horizontal={true}
+        horizontal={true} 
         >
         <Center>
-        <VStack space="2.5" mt="4">
+        <VStack space="2.5" mt="4" maxW="100%">
           <Stack 
+          maxW="100%"
           direction="row" 
+          marginLeft="0"
+          marginRight="0"
+    //   borderWidth="0.5"
           mb="2.5" 
           mt="1.5" 
           space={3}
           rounded="sm"
-          shadow={"3"}
+          shadow={"5"}
           >
           {tripList}
                 </Stack>

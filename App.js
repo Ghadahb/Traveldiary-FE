@@ -9,6 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components";
 import Profile from "./Components/user/Profile";
 import Travels from "./Components/trips/TripItem";
+import Footer from "./Components/footer/Footer";
 
 
 export default function App() {
@@ -17,6 +18,8 @@ export default function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         {/* <Home /> */}
+        {/* <Footer /> */}
+        
         <RootNavigator />
 
 
