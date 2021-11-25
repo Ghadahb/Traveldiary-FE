@@ -85,7 +85,7 @@ export default function Profile({profile}) {
                 />
               }
             />
-            <Text >Home</Text>
+            {/* <Text >Home</Text> */}
           </HStack>
           <HStack space="4" alignItems="center">
             <IconButton
@@ -94,11 +94,11 @@ export default function Profile({profile}) {
                   as={<FontAwesome name="heart" />}
                   size="sm"
                   color="black"
-                  onPress={() => navigation.navigate("Home")}
+                  onPress={() => navigation.navigate("ProfileList")}
                 />
               }
             />
-            <Text>Favorite</Text>
+            {/* <Text>Favorite</Text> */}
           </HStack>
 
           <HStack space="4" alignItems="center">
@@ -112,7 +112,7 @@ export default function Profile({profile}) {
                 />
               }
             />
-            <Text>My Trips</Text>
+            {/* <Text>My Trips</Text> */}
           </HStack>
 
           <HStack space="1" alignItems="center">
@@ -126,13 +126,11 @@ export default function Profile({profile}) {
                 />
               }
             />
-            <Text>
+            {/* <Text>
               Settings
-              {/* <UserProfileUpdate /> */}
-            </Text>
+              <UserProfileUpdate />
+            </Text>  */}
           </HStack>
-
-
         </HStack>
       </View>
     </ScrollView>

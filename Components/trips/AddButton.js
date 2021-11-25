@@ -189,6 +189,9 @@ const AddButton = () => {
 
                     title="Pick an image from camera roll"
                     onPress={pickImage}
+                    bg="#7dd3fc"
+                   
+                    
                   >
                     PHONE GALLERY
                     </Button>

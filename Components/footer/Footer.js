@@ -40,7 +40,7 @@ const Footer = () => {
       {/* <VStack space={4} flex={8} ></VStack> */}
 
       <HStack
-        bg="#6200ee"
+        bg="#7dd3fc"
         px="1"
         py="3"
         marginBottom="5"
@@ -65,9 +65,9 @@ const Footer = () => {
                 color="white"
                 fontSize="20"
                 fontWeight="bold"
-                onPress={() => navigation.navigate("Signin")}
+                onPress={() => navigation.navigate("Home")}
               >
-                Share
+                NOMAD 
               </Text>
             </Pressable>
           )}

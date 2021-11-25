@@ -45,7 +45,8 @@ const handleUpdate = (event) => {
   return (
     <Center flex={1} px="3">
       <>
-        <Button onPress={() => setShowModal(true)}>Update Trip</Button>
+        <Button onPress={() => setShowModal(true)}
+        bg="#7dd3fc">Update Trip</Button>
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />

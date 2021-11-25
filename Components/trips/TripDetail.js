@@ -32,6 +32,7 @@ const TripDetail = ({ route }) => {
   const { trip } = route.params;
 
   return (
+    <ScrollView vertical={true}>
 
     <Box
       maxW="100%"
@@ -90,8 +91,13 @@ const TripDetail = ({ route }) => {
         </Button> */}
       </Box>
 
-<TripUpdateModal Oldtrip={trip}/>
-<Button onPress={handleDelete} backgroundColor="#0000ff">Delete</Button>
+<TripUpdateModal trip={trip}/>
+<Button 
+onPress={handleDelete}
+bg="#7dd3fc"
+ >Delete</Button>
+
+
 
 
       <Stack p="4" space={3}>
@@ -131,6 +137,7 @@ const TripDetail = ({ route }) => {
         </HStack>
       </Stack>
     </Box>
+  </ScrollView>
   
   );
 };

@@ -19,6 +19,9 @@ export default function App() {
         {/* <Home /> */}
         {/* <Footer /> */}
 
+        
+     
+
         <RootNavigator />
         <Footer />
       </NavigationContainer>

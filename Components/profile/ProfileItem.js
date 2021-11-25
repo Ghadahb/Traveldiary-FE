@@ -88,4 +88,5 @@ const ProfileItem = ({ profile, navigation }) => {
 
 export default ProfileItem;
 
+
 const styles = StyleSheet.create({});

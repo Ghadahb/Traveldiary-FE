@@ -17,13 +17,14 @@ import Signout from "../authentication/Signout";
 import { Footer } from "../footer/Footer";
 import UserProfileUpdate from "../user/UserProfileUpdate";
 import Profile2 from "../user/Profile2";
+import Profile3 from "../user/Profile3";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
 
-    <Navigator initialRouteName="Profile2">
+    <Navigator initialRouteName="Home">
 
       <Screen
         name="Home"
@@ -42,13 +43,15 @@ const RootNavigator = () => {
       <Screen name="Map" component={Map} />
       <Screen name="UserProfileUpdate" component={UserProfileUpdate} />
       <Screen name="Profile2" component={Profile2} />
+      <Screen name="Profile3" component={Profile3} />
 
       <Screen
         name="ProfileList"
         component={ProfileList}
         options={({navigation}) => ({
             title: "Users",
-            headerRight: () => <Signout navigation={navigation} />,
+            headerRight: () => <Signout navigation={navigation}
+           />,
           })}
       />
       <Screen

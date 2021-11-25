@@ -26,9 +26,10 @@ const Home = ({ navigation }) => {
         <Center mt="3">
           <VStack space={2} alignItems="center" safeAreaTop my={6}>
               
-          <Footer navigation={navigation}/> 
+          {/* <Footer navigation={navigation}/>  */}
 
           {/* <Footer navigation={navigation}/>  */}
+          {/* <SignIn /> */}
 
             {
              <View  style={{ marginTop: 50}}> 
@@ -52,13 +53,13 @@ const Home = ({ navigation }) => {
       
       <Center>
         <Box>
-          <Heading size="xl" mb="4">
-            Trip
+          <Heading size="lg" mb="4" maxW="800%" w="800%" >
+            EXPLORE. SHARE. TRAVEL.
 
           </Heading>
-          <Text fontSize="xl">
+          {/* <Text fontSize="xl">
             (noun) a journey or excursion, especially for pleasure.
-          </Text>
+          </Text> */}
         </Box>
        
       </Center>
