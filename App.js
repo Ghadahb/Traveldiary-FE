@@ -11,19 +11,16 @@ import Profile from "./Components/user/Profile";
 import Travels from "./Components/trips/TripItem";
 import Footer from "./Components/footer/Footer";
 
-
 export default function App() {
   const Stack = createStackNavigator();
   return (
     <NativeBaseProvider>
-      
       <NavigationContainer>
         {/* <Home /> */}
         {/* <Footer /> */}
-        <Footer />
+
         <RootNavigator />
-
-
+        <Footer />
       </NavigationContainer>
     </NativeBaseProvider>
   );

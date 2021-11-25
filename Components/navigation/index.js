@@ -22,7 +22,9 @@ const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
+
     <Navigator initialRouteName="Profile2">
+
       <Screen
         name="Home"
         component={Home}

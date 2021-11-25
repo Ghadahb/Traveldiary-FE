@@ -46,7 +46,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { UserProfileUpdate } from "./UserProfileUpdate";
 
-export default function Profile() {
+export default function Profile({profile}) {
   const navigation = useNavigation();
 
   return (
