@@ -15,7 +15,7 @@ const TripUpdateModal = ({Oldtrip}) => {
   const [showModal, setShowModal] = useState(false);
 
   const [trips, setTrip] = useState({
-    name: trip.name,
+    name: Oldtrip.name,
     // image: "",
   });
 
