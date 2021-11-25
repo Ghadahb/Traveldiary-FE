@@ -67,8 +67,14 @@ export default function Profile() {
           </View>
         </View>
 
-        <View>
-          <View>
+        <HStack
+          bg="white"
+          px="1"
+          py="3"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <HStack space="4" alignItems="center">
             <IconButton
               icon={
                 <Icon
@@ -80,36 +86,36 @@ export default function Profile() {
               }
             />
             <Text>Home</Text>
-          </View>
-        </View>
-        {/* </HStack> */}
-        {/* <HStack space="4" alignItems="center"> */}
-        <IconButton
-          icon={
-            <Icon
-              as={<FontAwesome name="heart" />}
-              size="sm"
-              color="black"
-              onPress={() => navigation.navigate("Home")}
-            />
-          }
-        />
-        <Text>Favorite</Text>
-        <View>
-          <View>
+          </HStack>
+          <HStack space="4" alignItems="center">
             <IconButton
               icon={
                 <Icon
-                  as={<MaterialIcons name="airplanemode-active" />}
+                  as={<FontAwesome name="heart" />}
                   size="sm"
                   color="black"
                   onPress={() => navigation.navigate("Home")}
                 />
               }
             />
+            <Text>Favorite</Text>
+          </HStack>
+
+          <HStack space="4" alignItems="center">
+            <IconButton
+              icon={
+                <Icon
+                  as={<MaterialIcons name="airplanemode-active" />}
+                  size="sm"
+                  color="black"
+                  onPress={() => navigation.navigate("TripList")}
+                />
+              }
+            />
             <Text>My Trips</Text>
-          </View>
-          <View>
+          </HStack>
+
+          <HStack space="4" alignItems="center">
             <IconButton
               icon={
                 <Icon
@@ -124,8 +130,10 @@ export default function Profile() {
               Settings
               {/* <UserProfileUpdate /> */}
             </Text>
-          </View>
-        </View>
+          </HStack>
+
+
+        </HStack>
       </View>
     </ScrollView>
   );

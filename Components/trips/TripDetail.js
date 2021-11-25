@@ -77,7 +77,7 @@ const TripDetail = ({ route }) => {
         </Center>
 
         
-        <Button
+        {/* <Button */}
 
         {/* <Button
 
