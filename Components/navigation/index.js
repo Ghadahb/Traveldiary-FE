@@ -21,7 +21,7 @@ const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName="Profile">
+    <Navigator initialRouteName="ProfileList">
       <Screen
         name="Home"
         component={Home}
