@@ -90,11 +90,15 @@ const TripDetail = ({ route }) => {
           Delete
         </Button> */}
       </Box>
+
 <TripUpdateModal trip={trip}/>
 <Button 
 onPress={handleDelete}
 bg="#7dd3fc"
  >Delete</Button>
+
+
+
 
       <Stack p="4" space={3}>
         <Stack space={2}>
