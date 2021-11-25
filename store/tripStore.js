@@ -39,11 +39,12 @@ class TripStore {
     try {
       const formData = new FormData();
 
-      for(const key in updatedTrip){
+      for (const key in updatedTrip) {
         // console.log(key)
-        formData.append(key, updatedTrip[key])
+        formData.append(key, updatedTrip[key]);
       }
       const res = await instance.put(`/trip/${tripId}`, formData);
+      console.log(res.data);
       this.trips = this.trips.map((trip) =>
         trip._id === tripId ? res.data : trip
       );
@@ -52,25 +53,17 @@ class TripStore {
     }
   };
 
-
-  
   deleteTrip = async (tripId) => {
     try {
       await instance.delete(`/trip/${tripId}`);
-      this.trips = this.trips.filter(
-        (trip) => trip._id !== tripId
-      );
+      this.trips = this.trips.filter((trip) => trip._id !== tripId);
     } catch (error) {
       console.log("TripStore -> deleteTrip -> error", error);
     }
   };
-
-
 }
 
-
 const tripStore = new TripStore();
-tripStore.fetchTrips()
+tripStore.fetchTrips();
 
 export default tripStore;
-
