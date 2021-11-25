@@ -13,7 +13,9 @@ import authStore from "../../store/authStore";
 
 import { Image, Text, TouchableOpacity } from "react-native";
 import  { useState, useEffect } from 'react';
-import { View, Platform } from 'react-native';
+
+import {  Platform } from 'react-native';
+
 import * as ImagePicker from 'expo-image-picker';
 
 const AddButton = () => {
@@ -161,8 +163,9 @@ const AddButton = () => {
                   </FormControl>
 
                 <FormControl>
-                  <FormControl.Label>How long was your trip?</FormControl.Label>
-                  <Input onChangeText={(date) => setTrip({ ...trip, date })} />
+                  <FormControl.Label mt="3">How long was your trip?</FormControl.Label>
+                  <Input onChangeText={(date) => setTrip({ ...trip, date })} 
+                  />
                   <FormControl.HelperText>
                     Please use this format: YYYY-MM-DD.
                   </FormControl.HelperText>
@@ -183,9 +186,12 @@ const AddButton = () => {
                   }}
                 >
                   <Button
+
                     title="Pick an image from camera roll"
                     onPress={pickImage}
-                  />
+                  >
+                    PHONE GALLERY
+                    </Button>
                   {image && (
                     <Image
                       source={{ uri: image }}

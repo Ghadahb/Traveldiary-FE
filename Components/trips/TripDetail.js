@@ -75,7 +75,12 @@ const TripDetail = ({ route }) => {
         >
           {trip.name}
         </Center>
+
+        
+        {/* <Button */}
+
         {/* <Button
+
           mt="2"
           colorScheme="indigo"
           onPress={handleDelete}
@@ -84,8 +89,10 @@ const TripDetail = ({ route }) => {
           Delete
         </Button> */}
       </Box>
-<TripUpdateModal trip={trip}/>
+
+<TripUpdateModal Oldtrip={trip}/>
 <Button onPress={handleDelete} backgroundColor="#0000ff">Delete</Button>
+
 
       <Stack p="4" space={3}>
         <Stack space={2}>

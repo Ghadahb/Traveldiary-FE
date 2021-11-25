@@ -16,7 +16,6 @@ class ProfileStore {
   fetchProfiles = async () => {
     try {
         const response = await instance.get("/profile"); 
-        // check s
         this.profiles = response.data;
         this.isLoading = false;
       } catch (error) {
@@ -24,31 +23,16 @@ class ProfileStore {
       }
   };
 
-  createTrip = async (newTrip) => {
-    try {
-      const formData = new FormData();
-      for (const key in newTrip) {
-        formData.append(key, newTrip[key]);
-      }
-      const response = await instance.post("/trips", formData);
-      this.trips.push(response.data);
-      this.isLoading= false
-    } catch (error) {
-      console.log(
-        "🚀 ~ file: tripStore.js ~ line 16 ~ TripStore ~ createTrip= ~ error",
-        error
-      );
-    }
-  };
+
   
-  updateTrip = async (updateTrip, tripId) => {
+  updateProfile = async (updatedProfile) => {
     try {
-      const res = await instance.put(`/trips/${tripId}`, updateTrip);
-      this.trips = this.trips.map((trip) =>
-        trip._id === updateTrip._id ? res.data : trip
+      const res = await instance.put(`/profile/me}`, updatedProfile);
+      this.trips = this.trips.map((profile) =>
+        this.profiles._id === updatedProfile._id ? res.data : profile
       );
     } catch (error) {
-      console.log("tripStore -> updateTrip -> error", error);
+      console.log( error);
     }
   };
 

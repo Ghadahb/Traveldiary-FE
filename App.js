@@ -11,7 +11,6 @@ import Profile from "./Components/user/Profile";
 import Travels from "./Components/trips/TripItem";
 import Footer from "./Components/footer/Footer";
 
-
 export default function App() {
   const Stack = createStackNavigator();
   return (
@@ -19,10 +18,9 @@ export default function App() {
       <NavigationContainer>
         {/* <Home /> */}
         {/* <Footer /> */}
-        
+
         <RootNavigator />
-
-
+        <Footer />
       </NavigationContainer>
     </NativeBaseProvider>
   );
