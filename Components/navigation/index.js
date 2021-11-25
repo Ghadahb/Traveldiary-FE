@@ -15,12 +15,13 @@ import authStore from "../../store/authStore";
 import { Button } from "native-base";
 import Signout from "../authentication/Signout";
 import { Footer } from "../footer/Footer";
+import UserProfileUpdate from "../user/UserProfileUpdate";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName="Home">
+    <Navigator initialRouteName="Profile">
       <Screen
         name="Home"
         component={Home}
@@ -36,6 +37,7 @@ const RootNavigator = () => {
       {/* <Screen name="Footer" component={Footer} /> */}
 
       <Screen name="Map" component={Map} />
+      <Screen name="UserProfileUpdate" component={UserProfileUpdate} />
 
       <Screen
         name="ProfileList"

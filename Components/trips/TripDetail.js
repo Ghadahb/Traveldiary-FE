@@ -76,6 +76,7 @@ const TripDetail = ({ route }) => {
         >
           {trip.name}
         </Center>
+        
         <Button
           mt="2"
           colorScheme="indigo"
