@@ -8,6 +8,8 @@ import ProfileItem from "./ProfileItem";
 import tripStore from "../../store/tripStore";
 import Profile2 from "../user/Profile2";
 import Profile3 from "../user/Profile3";
+import Profile from "../user/Profile";
+
 
 const ProfileList = ({navigation}) => {
 
@@ -19,17 +21,15 @@ const ProfileList = ({navigation}) => {
   return (
     <View>
 
-        
-//         {/* <Text>checking</Text> */}
-//         <SearchBar 
-//         onChange={(event) => setQuery(event.target.name)}
-//         />
-//         <Profile3 />
-//         <Profile2 />
+    <SearchBar />
+    
+    
+     <Profile3 />
+       <Profile2 />
 
-        <SearchBar/>
        
-      <Text>{profileList}</Text>
+       
+      {/* <Text>{profileList}</Text> */}
 
 
     </View>

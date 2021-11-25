@@ -91,7 +91,7 @@ const TripDetail = ({ route }) => {
         </Button> */}
       </Box>
 
-<TripUpdateModal trip={trip}/>
+<TripUpdateModal oldTrip={trip}/>
 <Button 
 onPress={handleDelete}
 bg="#7dd3fc"

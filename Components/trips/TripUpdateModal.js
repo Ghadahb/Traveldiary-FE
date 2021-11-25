@@ -11,35 +11,36 @@ import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
 
-const TripUpdateModal = ({Oldtrip}) => {
+const TripUpdateModal = ({oldTrip}) => {
   const [showModal, setShowModal] = useState(false);
 
-  const [trips, setTrip] = useState({
-    name: Oldtrip.name,
-    // image: "",
-  });
+  // const [trips, setTrip] = useState({
+  //   name: oldTrip.name,
+    
+  // });
 
-    const handleChange = (event) =>
-      setTrip({ ...trip, [event.target.name]: event.target.value });
+    // const handleChange = (event) =>
+    //   setTrip({ ...trip, [event.target.name]: event.target.value });
 
   //   const handleImage = (event) =>
   //     setTrip({ ...trip, image: event.target.files[0] });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    tripStore.updateTrip(trips);
-    // handleClose();
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   tripStore.updateTrip(trips);
+    
+  // };
 
 
   const [updatedTrip, setUpdatedTrip] = useState({
-      name: Oldtrip.name, 
+      name: oldTrip.name, 
     }
 );
 const handleUpdate = (event) => {
-  event.preventDefault();
-  if (Oldtrip) tripStore.updateTrip(updatedTrip, Oldtrip._id);
-  else tripStore.createProduct(updatedTrip);
+  console.log(updatedTrip);
+  
+  tripStore.updateTrip(updatedTrip, oldTrip._id);
+  
 };
  
   return (
@@ -55,7 +56,7 @@ const handleUpdate = (event) => {
               <FormControl>
                 <FormControl.Label>Title</FormControl.Label>
 
-                <Input onChangeText={(name) => setUpdatedTrip({ ...Oldtrip, name })} />
+                <Input onChangeText={(name) => setUpdatedTrip({ ...updatedTrip, name })} />
               </FormControl>
               <FormControl mt="3">
                 <FormControl.Label>Photo</FormControl.Label>
@@ -63,7 +64,7 @@ const handleUpdate = (event) => {
                   name="image"
                   type="file"
 
-                  onChangeText={(image) => setUpdatedTrip({ ...trip, image })}
+                  onChangeText={(image) => setUpdatedTrip({ ...updatedTrip, image })}
                 />
               </FormControl>
             </Modal.Body>
@@ -79,7 +80,7 @@ const handleUpdate = (event) => {
                 >
                   Cancel
                 </Button>
-                <Button onPress={handleSubmit}>Save</Button>
+                <Button onPress={handleUpdate}>Save</Button>
               </Button.Group>
             </Modal.Footer>
           </Modal.Content>
