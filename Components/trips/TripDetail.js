@@ -25,12 +25,11 @@ const TripDetail = ({ route }) => {
   if (tripStore.isLoading) {
     return <Spinner />;
   }
-  const handleDelete = (tripId) => {
-    tripStore.deleteTrip(tripId);
+  const handleDelete = () => {
+    tripStore.deleteTrip(trip._id);
   };
 
   const { trip } = route.params;
-  //   const trip = tripStore.trips.find ((trip) => trip._id === trip);
 
   return (
 
@@ -76,16 +75,22 @@ const TripDetail = ({ route }) => {
         >
           {trip.name}
         </Center>
+
         
         <Button
+
+        {/* <Button
+
           mt="2"
           colorScheme="indigo"
           onPress={handleDelete}
           backgroundColor="#0000ff"
         >
           Delete
-        </Button>
+        </Button> */}
       </Box>
+<TripUpdateModal trip={trip}/>
+<Button onPress={handleDelete} backgroundColor="#0000ff">Delete</Button>
 
       <Stack p="4" space={3}>
         <Stack space={2}>

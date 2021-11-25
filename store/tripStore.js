@@ -39,12 +39,22 @@ class TripStore {
     try {
       const res = await instance.put(`/trip/${tripId}`, updateTrip);
       this.trips = this.trips.map((trip) =>
-        trip._id === tripId ? res.data : trip
+        trip._id === updateTrip._id ? res.data : trip
       );
     } catch (error) {
       console.log("tripStore -> updateTrip -> error", error);
     }
   };
+
+  
+   deleteTrip = async (tripId) => {
+    try {
+      await api.delete(`/trip/${tripId}`);
+
+      this.trips = this.trips.filter((trip) => trip._id !== tripId);
+    } catch (error) {
+      console.log(error);
+
 
   deleteTrip = async (updateTrip, tripId) => {
     try {
@@ -54,6 +64,7 @@ class TripStore {
       );
     } catch (error) {
       console.log("tripStore -> updateTrip -> error", error);
+
     }
   };
 }
