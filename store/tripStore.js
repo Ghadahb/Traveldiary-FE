@@ -47,13 +47,13 @@ class TripStore {
   };
 
   
-   deleteTrip = async (tripId) => {
-    try {
-      await api.delete(`/trip/${tripId}`);
+  //  deleteTrip = async (tripId) => {
+  //   try {
+  //     await api.delete(`/trip/${tripId}`);
 
-      this.trips = this.trips.filter((trip) => trip._id !== tripId);
-    } catch (error) {
-      console.log(error);
+  //     this.trips = this.trips.filter((trip) => trip._id !== tripId);
+  //   } catch (error) {
+  //     console.log(error);}}
 
 
   deleteTrip = async (updateTrip, tripId) => {
@@ -68,8 +68,9 @@ class TripStore {
     }
   };
 }
-const tripStore = new TripStore();
-tripStore.fetchTrips();
-export default tripStore;
 
-const styles = StyleSheet.create({});
+
+const tripStore = new TripStore();
+tripStore.fetchTrips()
+
+export default tripStore;
