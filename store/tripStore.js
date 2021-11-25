@@ -58,7 +58,7 @@ class TripStore {
 
   deleteTrip = async (updateTrip, tripId) => {
     try {
-      const res = await instance.put(`/trips/${tripId}`, updateTrip);
+      const res = await instance.put(`/trip/${tripId}`, updateTrip);
       this.trips = this.trips.map((trip) =>
         trip._id === tripId ? res.data : trip
       );

@@ -25,6 +25,7 @@ function Footer () {
         backgroundColor="#3700B3"
         barStyle="light-content"
         margin-top="50"
+        width= "window"
       />
 
       <Box
@@ -80,7 +81,7 @@ function Footer () {
           <IconButton
             icon={
               <Icon as={<FontAwesome name="user" />} size="sm" color="white"
-              onPress={() => navigation.navigate("Signin")}
+              onPress={() => navigation.navigate("Profile")}
               />
             }
           />

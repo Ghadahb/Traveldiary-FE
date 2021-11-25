@@ -75,7 +75,12 @@ const TripDetail = ({ route }) => {
         >
           {trip.name}
         </Center>
+
+        
+        <Button
+
         {/* <Button
+
           mt="2"
           colorScheme="indigo"
           onPress={handleDelete}
