@@ -21,15 +21,18 @@ import { baseURL } from "../../store/instance";
 import tripStore from "../../store/tripStore";
 import TripUpdateModal from "./TripUpdateModal";
 
-const TripDetail = ({ route }) => {
+const TripDetail = ({ route, navigation }) => {
   if (tripStore.isLoading) {
     return <Spinner />;
   }
+  const { trip } = route.params;
+
   const handleDelete = () => {
     tripStore.deleteTrip(trip._id);
+   navigation.navigate("TripList")
   };
 
-  const { trip } = route.params;
+
 
   return (
     <ScrollView vertical={true}>
@@ -93,7 +96,7 @@ const TripDetail = ({ route }) => {
 
 <TripUpdateModal oldTrip={trip}/>
 <Button 
-onPress={handleDelete}
+onPress={handleDelete} 
 bg="#7dd3fc"
  >Delete</Button>
 
