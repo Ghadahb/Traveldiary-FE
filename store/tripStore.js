@@ -52,12 +52,18 @@ class TripStore {
   //     await api.delete(`/trip/${tripId}`);
 
 
+
       this.trips = this.trips.filter((trip) => trip._id !== tripId);
     } catch (error) {
       console.log(error);
     }
   }
 
+  //     this.trips = this.trips.filter((trip) => trip._id !== tripId);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }}
 
 
 
