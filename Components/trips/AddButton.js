@@ -13,7 +13,7 @@ import authStore from "../../store/authStore";
 
 import { Image, Text, TouchableOpacity } from "react-native";
 import  { useState, useEffect } from 'react';
-import { View, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 const AddButton = () => {

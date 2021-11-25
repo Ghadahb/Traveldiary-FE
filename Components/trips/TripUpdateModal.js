@@ -4,10 +4,7 @@ import {
   Modal,
   FormControl,
   Input,
-  Center,
-  Spinner,
-  Form,
-  NativeBaseProvider,
+  Center
 } from "native-base";
 import { useState } from "react";
 import tripStore from "../../store/tripStore";
@@ -16,31 +13,27 @@ import authStore from "../../store/authStore";
 
 const TripUpdateModal = ({trip}) => {
   const [showModal, setShowModal] = useState(false);
-  const [newtrip, setTrip] = useState({
-      name: trip.name, 
-    }
-);
-const handleUpdate = () => {
-  tripStore.updateTrip(trip._id, newtrip);
-  console.log(trip._id);
-};
-  //   const handleChange = (event) =>
-  //     setTrip({ ...trip, [event.target.name]: event.target.value });
+  const [trips, setTrip] = useState({
+    name: trip.name,
+    // image: "",
+  });
+
+    const handleChange = (event) =>
+      setTrip({ ...trip, [event.target.name]: event.target.value });
 
   //   const handleImage = (event) =>
   //     setTrip({ ...trip, image: event.target.files[0] });
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   tripStore.updateTrip(trip);
-  //   // handleClose();
-  // };
- 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    tripStore.updateTrip(trips);
+    // handleClose();
+  };
 
   return (
     <Center flex={1} px="3">
       <>
-        <Button onPress={() => setShowModal(true)}>Update</Button>
+        <Button onPress={() => setShowModal(true)}>Update Trip</Button>
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />
@@ -48,16 +41,16 @@ const handleUpdate = () => {
             <Modal.Body>
               <FormControl>
                 <FormControl.Label>Title</FormControl.Label>
-                <Input onChangeText={(name) => setTrip({ ...trip, name })} />
+                <Input onChangeText={(name) => setTrip({ ...trips, name })} />
               </FormControl>
-              {/* <FormControl mt="3"> */}
-                {/* <FormControl.Label>Photo</FormControl.Label>
+              <FormControl mt="3">
+                <FormControl.Label>Photo</FormControl.Label>
                 <Input
                   name="image"
                   type="file"
-                  onChangeText={(image) => setTrip({ ...trip, image })}
+                  onChangeText={(image) => setTrip({ ...trips, image })}
                 />
-              </FormControl> */}
+              </FormControl>
             </Modal.Body>
 
             <Modal.Footer>
@@ -71,7 +64,7 @@ const handleUpdate = () => {
                 >
                   Cancel
                 </Button>
-                <Button onPress={handleUpdate}>save</Button>
+                <Button onPress={handleSubmit}>Save</Button>
               </Button.Group>
             </Modal.Footer>
           </Modal.Content>

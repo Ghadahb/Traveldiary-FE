@@ -47,18 +47,19 @@ class TripStore {
   };
 
   
-   deleteTrip = async (tripId) => {
-    try {
-      await api.delete(`/trip/${tripId}`);
+  //  deleteTrip = async (tripId) => {
+  //   try {
+  //     await api.delete(`/trip/${tripId}`);
 
-      this.trips = this.trips.filter((trip) => trip._id !== tripId);
-    } catch (error) {
-      console.log(error);
-
+  //     this.trips = this.trips.filter((trip) => trip._id !== tripId);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }}
 
   deleteTrip = async (updateTrip, tripId) => {
     try {
-      const res = await instance.put(`/trips/${tripId}`, updateTrip);
+      const res = await instance.put(`/trip/${tripId}`, updateTrip);
       this.trips = this.trips.map((trip) =>
         trip._id === tripId ? res.data : trip
       );
