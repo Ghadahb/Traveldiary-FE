@@ -85,7 +85,7 @@ export default function Profile() {
                 />
               }
             />
-            <Text>Home</Text>
+            <Text >Home</Text>
           </HStack>
           <HStack space="4" alignItems="center">
             <IconButton
@@ -115,7 +115,7 @@ export default function Profile() {
             <Text>My Trips</Text>
           </HStack>
 
-          <HStack space="4" alignItems="center">
+          <HStack space="1" alignItems="center">
             <IconButton
               icon={
                 <Icon
