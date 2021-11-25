@@ -17,7 +17,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const SearchBar = () => {
   return (
-    <Center flex={1} px="2">
+    <Center px="2">
       <VStack
         space={5}
         width="100%"

@@ -60,9 +60,9 @@ class AuthStore {
       this.setUser(response.data.token);
       if (! this.user) {
         toast.show({
-          title: "Invalid login",
-          status: "error",
-          description: "wrong username/password combination",
+          title: "Welcome",
+          status: "sucess",
+        //   description: "wrong username/password combination",
         });
       }
       // navigation.replace("Home");

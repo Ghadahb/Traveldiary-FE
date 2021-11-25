@@ -5,6 +5,8 @@ import authStore from "../../store/authStore";
 import profileStore from "../../store/profileStore";
 import SearchBar from "./SearchBar";
 import tripStore from "../../store/tripStore";
+import Profile2 from "../user/Profile2";
+import Profile3 from "../user/Profile3";
 
 const ProfileList = () => {
 
@@ -15,15 +17,18 @@ const ProfileList = () => {
 
   return (
     <View>
-        <SearchBar/>
-        <Text>checking</Text>
-      <Text>{profileList}</Text>
+        
+        {/* <Text>checking</Text> */}
+        <SearchBar 
+        onChange={(event) => setQuery(event.target.name)}
+        />
+        <Profile3 />
+        <Profile2 />
+      {/* <Text>{profileList}</Text> */}
 
     </View>
   );
 };
-
-
 
 
 export default observer(ProfileList);

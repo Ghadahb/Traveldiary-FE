@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { UserProfileUpdate } from "./UserProfileUpdate";
 
-export default function Profile2() {
+export default function Profile3() {
   const navigation = useNavigation();
 
   return (
@@ -18,12 +18,12 @@ export default function Profile2() {
           <Image
             style={styles.avatar}
             source={{
-              uri: "https://cdn.discordapp.com/attachments/891711407089934336/913369830978093076/IMG_0179.jpg",
+              uri: "https://media.discordapp.net/attachments/912020704076107806/913369323354087444/image0.png?width=618&height=1079",
             }}
           />
 
-          <Text style={styles.name}>Abdallah Al Khaldi </Text>
-          <Text style={styles.userInfo}>abdallah@gmail.com </Text>
+          <Text style={styles.name}>Amnah Alduhaileb </Text>
+          <Text style={styles.userInfo}>amnah@gmail.com </Text>
           <Text style={styles.userInfo}>📍Kuwait City </Text>
         </View>
       </View>

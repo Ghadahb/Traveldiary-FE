@@ -20,9 +20,9 @@ export default function App() {
       <NavigationContainer>
         {/* <Home /> */}
         {/* <Footer /> */}
-        <Footer />
+        
         <RootNavigator />
-
+        <Footer />
 
       </NavigationContainer>
     </NativeBaseProvider>
