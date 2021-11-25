@@ -52,6 +52,7 @@ class TripStore {
     }
   };
 
+
   
   deleteTrip = async (tripId) => {
     try {
@@ -72,3 +73,4 @@ const tripStore = new TripStore();
 tripStore.fetchTrips()
 
 export default tripStore;
+
