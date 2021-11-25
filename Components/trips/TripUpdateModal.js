@@ -11,8 +11,9 @@ import tripStore from "../../store/tripStore";
 import { observer } from "mobx-react";
 import authStore from "../../store/authStore";
 
-const TripUpdateModal = ({trip}) => {
+const TripUpdateModal = ({trip,tripId}) => {
   const [showModal, setShowModal] = useState(false);
+
   const [trips, setTrip] = useState({
     name: trip.name,
     // image: "",
@@ -30,6 +31,16 @@ const TripUpdateModal = ({trip}) => {
     // handleClose();
   };
 
+
+  const [updatedTrip, setUpdatedTrip] = useState({
+      name: trip.name, 
+    }
+);
+const handleUpdate = () => {
+  tripStore.updateTrip(tripId, updatedTrip);
+  console.log();
+};
+ 
   return (
     <Center flex={1} px="3">
       <>
@@ -41,14 +52,17 @@ const TripUpdateModal = ({trip}) => {
             <Modal.Body>
               <FormControl>
                 <FormControl.Label>Title</FormControl.Label>
-                <Input onChangeText={(name) => setTrip({ ...trips, name })} />
+
+
+                <Input onChangeText={(name) => setUpdatedTrip({ ...trip, name })} />
               </FormControl>
               <FormControl mt="3">
                 <FormControl.Label>Photo</FormControl.Label>
                 <Input
                   name="image"
                   type="file"
-                  onChangeText={(image) => setTrip({ ...trips, image })}
+
+                  onChangeText={(image) => setUpdatedTrip({ ...trip, image })}
                 />
               </FormControl>
             </Modal.Body>

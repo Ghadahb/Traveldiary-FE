@@ -27,6 +27,9 @@ const Home = ({ navigation }) => {
           <VStack space={2} alignItems="center" safeAreaTop my={6}>
               
           <Footer navigation={navigation}/> 
+
+          {/* <Footer navigation={navigation}/>  */}
+
             {
              <View  style={{ marginTop: 50}}> 
               <Image flex={1} px={3}

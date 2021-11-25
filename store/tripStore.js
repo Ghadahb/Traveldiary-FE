@@ -35,11 +35,11 @@ class TripStore {
     }
   };
 
-  updateTrip = async (updateTrip, tripId) => {
+  updateTrip = async (updatedTrip, tripId) => {
     try {
       const res = await instance.put(`/trip/${tripId}`, updateTrip);
       this.trips = this.trips.map((trip) =>
-        trip._id === updateTrip._id ? res.data : trip
+        trip._id === updatedTrip._id ? res.data : trip
       );
     } catch (error) {
       console.log("tripStore -> updateTrip -> error", error);
@@ -51,26 +51,38 @@ class TripStore {
   //   try {
   //     await api.delete(`/trip/${tripId}`);
 
+
+
+      this.trips = this.trips.filter((trip) => trip._id !== tripId);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //     this.trips = this.trips.filter((trip) => trip._id !== tripId);
   //   } catch (error) {
   //     console.log(error);
   //   }
   // }}
 
-  deleteTrip = async (updateTrip, tripId) => {
-    try {
-      const res = await instance.put(`/trip/${tripId}`, updateTrip);
-      this.trips = this.trips.map((trip) =>
-        trip._id === tripId ? res.data : trip
-      );
-    } catch (error) {
-      console.log("tripStore -> updateTrip -> error", error);
 
-    }
-  };
+
+  // deleteTrip = async (updateTrip, tripId) => {
+  //   try {
+  //     const res = await instance.put(`/trip/${tripId}`, updateTrip);
+  //     this.trips = this.trips.map((trip) =>
+  //       trip._id === tripId ? res.data : trip
+  //     );
+  //   } catch (error) {
+  //     console.log("tripStore -> updateTrip -> error", error);
+
+  //   }
+  // };
 }
+
+
 const tripStore = new TripStore();
-tripStore.fetchTrips();
+tripStore.fetchTrips()
+
 export default tripStore;
 
-const styles = StyleSheet.create({});

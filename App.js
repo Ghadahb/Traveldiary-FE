@@ -16,10 +16,11 @@ export default function App() {
   const Stack = createStackNavigator();
   return (
     <NativeBaseProvider>
+      
       <NavigationContainer>
         {/* <Home /> */}
         {/* <Footer /> */}
-        
+        <Footer />
         <RootNavigator />
 
 
