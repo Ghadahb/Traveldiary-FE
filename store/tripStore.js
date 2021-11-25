@@ -54,6 +54,8 @@ class TripStore {
       this.trips = this.trips.filter((trip) => trip._id !== tripId);
     } catch (error) {
       console.log(error);
+    }
+  }
 
 
   deleteTrip = async (updateTrip, tripId) => {
@@ -72,4 +74,4 @@ const tripStore = new TripStore();
 tripStore.fetchTrips();
 export default tripStore;
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
