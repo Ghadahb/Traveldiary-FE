@@ -35,11 +35,11 @@ class TripStore {
     }
   };
 
-  updateTrip = async (updateTrip, tripId) => {
+  updateTrip = async (updatedTrip, tripId) => {
     try {
       const res = await instance.put(`/trip/${tripId}`, updateTrip);
       this.trips = this.trips.map((trip) =>
-        trip._id === updateTrip._id ? res.data : trip
+        trip._id === updatedTrip._id ? res.data : trip
       );
     } catch (error) {
       console.log("tripStore -> updateTrip -> error", error);
@@ -56,17 +56,17 @@ class TripStore {
   //     console.log(error);}}
 
 
-  deleteTrip = async (updateTrip, tripId) => {
-    try {
-      const res = await instance.put(`/trip/${tripId}`, updateTrip);
-      this.trips = this.trips.map((trip) =>
-        trip._id === tripId ? res.data : trip
-      );
-    } catch (error) {
-      console.log("tripStore -> updateTrip -> error", error);
+  // deleteTrip = async (updateTrip, tripId) => {
+  //   try {
+  //     const res = await instance.put(`/trip/${tripId}`, updateTrip);
+  //     this.trips = this.trips.map((trip) =>
+  //       trip._id === tripId ? res.data : trip
+  //     );
+  //   } catch (error) {
+  //     console.log("tripStore -> updateTrip -> error", error);
 
-    }
-  };
+  //   }
+  // };
 }
 
 
