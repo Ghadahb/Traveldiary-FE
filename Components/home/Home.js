@@ -25,7 +25,7 @@ const Home = ({ navigation }) => {
       <ScrollView px="20">
         <Center mt="3">
           <VStack space={2} alignItems="center" safeAreaTop my={6}>
-          <Footer navigation={navigation}/> 
+          {/* <Footer navigation={navigation}/>  */}
             {
               
               <Image flex={1} px={3}
